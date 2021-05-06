@@ -1,10 +1,14 @@
 <ul>
     <% @contents.each do |content| %>
         <li><%= content.title %></li>
-        <%= link_to "Editar", edit_content_path(content) %>   
-        <%= link_to "Abrir", content_path(content) %>  
+        <%= link_to "Abrir", content_path(content), class: "btn btn-primary" %>  
+        <%= link_to "Editar", edit_content_path(content) , class: "btn btn-secondary" %>   
         <%= link_to "Destroy", content_path(content),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %> 
+                  data: { confirm: "Are you sure?" },
+                  class: "btn btn-danger"
+                  %> 
     <% end %>
+    <br>
+    <%= link_to 'New Content', new_content_path, class: "btn btn-success" %>
 </ul>

@@ -12,6 +12,10 @@
         <%= form.label :description %>
         <%= form.text_area :description %>
     </div>
+    <div class="field">
+        <%= form.label :tags %>
+        <%= form.select :tags , options_for_select(content.tags.pluck(:name), current_user.tags.pluck(:name)) , {}, { class: 'select2', multiple: 'multiple',style: "width: 50%" }  %>
+    </div>
     <div class="submit">
         <%= form.submit %>
         
